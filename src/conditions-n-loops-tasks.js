@@ -69,8 +69,21 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  const queenValues = Object.values(queen);
+  const kingValues = Object.values(king);
+  return (
+    queenValues[0] === kingValues[0] ||
+    queenValues[1] === kingValues[1] ||
+    (queenValues[0] === queenValues[1] && kingValues[0] === kingValues[1])
+  );
+  /*
+  for (let i = 2; i <=8; i += 1) {
+    for (let j = 8; j >= 2; j -= 1) {
+    return (((queenValues[0] = i) && (queenValues[1] = j)) && 
+      ((kingValues[0] = i) && (kingValues[1] = j)))
+    }
+  } */
 }
 
 /**
@@ -118,8 +131,61 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let result;
+  function simpleNum(a) {
+    switch (a) {
+      case 1:
+        result = 'I';
+        break;
+      case 2:
+        result = 'II';
+        break;
+      case 3:
+        result = 'III';
+        break;
+      case 4:
+        result = 'IV';
+        break;
+      case 5:
+        result = 'V';
+        break;
+      case 6:
+        result = 'VI';
+        break;
+      case 7:
+        result = 'VII';
+        break;
+      case 8:
+        result = 'VIII';
+        break;
+      case 9:
+        result = 'IX';
+        break;
+      case 10:
+        result = 'X';
+        break;
+      default:
+        result = 'I';
+        break;
+    }
+    return result;
+  }
+  if (num >= 1 && num <= 10) result = simpleNum(num);
+
+  if (num > 10 && num <= 20) {
+    const newNum = num - 10;
+    result = simpleNum(10) + simpleNum(newNum);
+  }
+  if (num > 20 && num <= 30) {
+    const newNum = num - 20;
+    result = simpleNum(10) + simpleNum(10) + simpleNum(newNum);
+  }
+  if (num > 30 && num <= 39) {
+    const newNum = num - 30;
+    result = simpleNum(10) + simpleNum(10) + simpleNum(10) + simpleNum(newNum);
+  }
+  return result;
 }
 
 /**
@@ -204,10 +270,9 @@ function convertNumberToString(/* numberStr */) {
  *  'qweqwe'    => false
  */
 function isPalindrome(str) {
-  const arr = str.split('');
-  for (let i = 0; i <= arr.length - 1; i += 1) {
-    for (let j = arr.length - 1; j >= 0; j -= 1) {
-      if (arr[i] !== arr[j]) {
+  for (let i = 0; i < str.length; i += 1) {
+    for (let j = str.length - 1; j > -1; j -= 1) {
+      if (str[i] !== str[j]) {
         return false;
       }
     }
@@ -301,6 +366,17 @@ function getBalanceIndex(/* arr */) {
  *        ]
  */
 function getSpiralMatrix(/* size */) {
+  /* const arr = [];
+  for (let i = 1; i <= size; i += 1) {
+    arr[i] = [];
+    arr[0].push[i];
+  }
+  let rowLast = [];
+  for (let i = size; i <= size + size - 1; i += 1) {
+    rowLast.push(i);
+  }
+
+  return arr; */
   throw new Error('Not implemented');
 }
 
@@ -337,8 +413,21 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  if (arr.length < 2) return arr;
+  const base = arr[0];
+  const leftArr = [];
+  const rightArr = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    if (base > arr[i]) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
+    }
+  }
+  const res = leftArr.concate(base, rightArr);
+  return res;
 }
 
 /**
