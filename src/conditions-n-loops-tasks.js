@@ -105,16 +105,15 @@ function canQueenCaptureKing(queen, king) {
  *  3, 0, 3   => false
  */
 function isIsoscelesTriangle(a, b, c) {
-  if (a === b && a === (c * Math.sqrt(2)) / 2) {
-    return true;
-  }
-  if (a === c && a === (b * Math.sqrt(2)) / 2) {
-    return true;
-  }
-  if (c === b && c === (a * Math.sqrt(2)) / 2) {
-    return true;
-  }
-  return false;
+  let res;
+  if (
+    (a === b && a === Math.round((c * Math.sqrt(2)) / 2)) ||
+    (a === c && a === Math.round((b * Math.sqrt(2)) / 2)) ||
+    (c === b && c === Math.round((a * Math.sqrt(2)) / 2))
+  )
+    res = true;
+  else res = false;
+  return res;
 }
 
 /**
