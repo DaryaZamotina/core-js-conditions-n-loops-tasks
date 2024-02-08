@@ -204,56 +204,66 @@ function convertToRomanNumerals(num) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(/* numberStr */) {
-  /* for (let i = 0; i < numberStr.length; i += 1) {
-    switch (numberStr[i]) {
+  /* 
+  let result;
+  function simpleNum(str) {
+    switch (str) {
       case '1':
-        numberStr[i] = 'one';
+        result = 'one';
         break;
       case '2':
-        numberStr[i] = 'two';
+        result = 'two';
         break;
       case '3':
-        numberStr[i] = 'three';
+        result = 'three';
         break;
       case '4':
-        numberStr[i] = 'four';
+        result = 'four';
         break;
       case '5':
-        numberStr[i] = 'five';
+        result = 'five';
         break;
       case '6':
-        numberStr[i] = 'six';
+        result = 'six';
         break;
       case '7':
-        numberStr[i] = 'seven';
+        result = 'seven';
         break;
       case '8':
-        numberStr[i] = 'eight';
+        result = 'eight';
         break;
       case '9':
-        numberStr[i] = 'nine';
+        result = 'nine';
         break;
       case '0':
-        numberStr[i] = 'zero';
+        result = 'zero';
         break;
       case '-':
-        numberStr[i] = 'minus';
-        break;
-      case '-':
-        numberStr[i] = 'minus';
+        result = 'minus';
         break;
       case '.':
-        numberStr[i] = 'point';
+        result = 'point';
         break;
       case ',':
-        numberStr[i] = 'point';
+        result = 'point';
         break;
       default:
-        numberStr;
+        result = '';
         break;
     }
+    return result;
   }
-  return numberStr; */
+  const arr = [];
+  let resultAr = '';
+  if (numberStr.length === 1) result = simpleNum(numberStr);
+  if (numberStr.length > 1) {
+    for (let i = 0; i < numberStr.length; i += 1) {
+      arr[i] = simpleNum(numberStr[i]) + ' ';
+      resultAr += arr[i];
+    }
+    result = resultAr;
+  }
+  return result; */
   throw new Error('Not implemented');
 }
 
@@ -270,14 +280,14 @@ function convertNumberToString(/* numberStr */) {
  *  'qweqwe'    => false
  */
 function isPalindrome(str) {
+  let result;
   for (let i = 0; i < str.length; i += 1) {
-    for (let j = str.length - 1; j > -1; j -= 1) {
-      if (str[i] !== str[j]) {
-        return false;
-      }
+    if (str[i] === str[str.length - 1 - i]) {
+      result = true;
     }
+    if (str[i] !== str[str.length - 1 - i]) result = false;
   }
-  return true;
+  return result;
 }
 
 /**
@@ -413,9 +423,8 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(arr) {
-  if (arr.length < 2) return arr;
-  const base = arr[0];
+function sortByAsc(/* arr */) {
+  /* const base = arr[0];
   const leftArr = [];
   const rightArr = [];
 
@@ -426,8 +435,9 @@ function sortByAsc(arr) {
       rightArr.push(arr[i]);
     }
   }
-  const res = leftArr.concate(base, rightArr);
-  return res;
+  const res = leftArr.concat(base, rightArr);
+  return res; */
+  throw new Error('Not implemented');
 }
 
 /**
