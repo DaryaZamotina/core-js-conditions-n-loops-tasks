@@ -202,49 +202,48 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  /* 
+function convertNumberToString(numberStr) {
   let result;
   function simpleNum(str) {
     switch (str) {
       case '1':
-        result = 'one';
+        result = 'one ';
         break;
       case '2':
-        result = 'two';
+        result = 'two ';
         break;
       case '3':
-        result = 'three';
+        result = 'three ';
         break;
       case '4':
-        result = 'four';
+        result = 'four ';
         break;
       case '5':
-        result = 'five';
+        result = 'five ';
         break;
       case '6':
-        result = 'six';
+        result = 'six ';
         break;
       case '7':
-        result = 'seven';
+        result = 'seven ';
         break;
       case '8':
-        result = 'eight';
+        result = 'eight ';
         break;
       case '9':
-        result = 'nine';
+        result = 'nine ';
         break;
       case '0':
-        result = 'zero';
+        result = 'zero ';
         break;
       case '-':
-        result = 'minus';
+        result = 'minus ';
         break;
       case '.':
-        result = 'point';
+        result = 'point ';
         break;
       case ',':
-        result = 'point';
+        result = 'point ';
         break;
       default:
         result = '';
@@ -252,18 +251,16 @@ function convertNumberToString(/* numberStr */) {
     }
     return result;
   }
-  const arr = [];
-  let resultAr = '';
-  if (numberStr.length === 1) result = simpleNum(numberStr);
-  if (numberStr.length > 1) {
-    for (let i = 0; i < numberStr.length; i += 1) {
-      arr[i] = simpleNum(numberStr[i]) + ' ';
-      resultAr += arr[i];
-    }
-    result = resultAr;
+  let finres = '';
+  let final = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const temp = simpleNum(numberStr[i]);
+    finres += temp;
   }
-  return result; */
-  throw new Error('Not implemented');
+  for (let i = 0; i < finres.length - 1; i += 1) {
+    final += finres[i];
+  }
+  return final;
 }
 
 /**
